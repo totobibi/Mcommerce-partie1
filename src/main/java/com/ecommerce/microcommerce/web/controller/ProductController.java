@@ -54,7 +54,6 @@ public class ProductController {
     //Récupérer un produit par son Id
     @ApiOperation(value = "Récupère un produit grâce à son ID à condition que celui-ci soit en stock!")
     @GetMapping(value = "/Produits/{id}")
-
     public Product afficherUnProduit(@PathVariable int id) {
 
         Product produit = productDao.findById(id);
@@ -63,6 +62,7 @@ public class ProductController {
 
         return produit;
     }
+
 
     @RequestMapping(value = "/AdminProduits", method = RequestMethod.GET)
     public Map<String, Integer> calculerMargeProduit() {
@@ -91,8 +91,10 @@ public class ProductController {
         return margesProduits;
     }
 
-
-
+    @RequestMapping(value = "/ProduitsParNom", method = RequestMethod.GET)
+    public Iterable<Product> trierProduitsParOrdreAlphabetique() {
+        return productDao.findAllByOrderByNomAsc();
+    }
 
     //ajouter un produit
     @PostMapping(value = "/Produits")
