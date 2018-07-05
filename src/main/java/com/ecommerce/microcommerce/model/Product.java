@@ -1,5 +1,6 @@
 package com.ecommerce.microcommerce.model;
 
+import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import org.hibernate.validator.constraints.Length;
 
@@ -62,6 +63,11 @@ public class Product {
     }
 
     public void setPrix(int prix) {
+        if(prix == 0) {
+            throw new ProduitGratuitException(
+                   "Le prix d'un produit doit être supérieur à 0"
+            );
+        }
         this.prix = prix;
     }
 
