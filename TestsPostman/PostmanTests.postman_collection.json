@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "9533cc11-76e3-4346-8489-a8b7e6ff378d",
+		"name": "PostmanTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "calculerMargeProduit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:9090/AdminProduits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"AdminProduits"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "154b6aef-5f78-4686-b755-78a21be0ac3c",
+					"name": "calculerMargeProduit",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/AdminProduits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"AdminProduits"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jul 2018 16:54:42 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"body": "{\"Product{id=1, nom='Ordinateur portable', prix=350}\":230,\"Product{id=3, nom='Table de Ping Pong', prix=750}\":350,\"Product{id=2, nom='Aspirateur Robot', prix=500}\":300}"
+				}
+			]
+		},
+		{
+			"name": "trierProduitsParOrdreAlphabetique",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:9090/ProduitsParNom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ProduitsParNom"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "56b5750b-9c3d-4b78-9f7e-7c0487a3b2fc",
+					"name": "trierProduitsParOrdreAlphabetique",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:9090/ProduitsParNom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"ProduitsParNom"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jul 2018 16:56:24 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"body": "[{\"id\":2,\"nom\":\"Aspirateur Robot\",\"prix\":500,\"prixAchat\":200},{\"id\":1,\"nom\":\"Ordinateur portable\",\"prix\":350,\"prixAchat\":120},{\"id\":3,\"nom\":\"Table de Ping Pong\",\"prix\":750,\"prixAchat\":400}]"
+				}
+			]
+		},
+		{
+			"name": "ajouterProduits",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nom\": \"X-Wing de Poe\",\n\t\"prix\" : 0,\n\t\"prixAchat\" : 79\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/Produits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"Produits"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "cd435416-1098-4455-8e39-76af124abcc9",
+					"name": "ajouterProduits",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nom\" : \"Clavier portable\",\n\t\"prix\" : 0,\n\t\"prixAchat\" : 35\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9090/Produits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"Produits"
+							]
+						}
+					},
+					"status": "Expectation Failed",
+					"code": 417,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Jul 2018 17:03:56 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [],
+					"body": "{\"timestamp\":1530810236836,\"status\":417,\"error\":\"Expectation Failed\",\"exception\":\"org.springframework.http.converter.HttpMessageNotReadableException\",\"message\":\"JSON parse error: Le prix d'un produit doit être supérieur à 0; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Le prix d'un produit doit être supérieur à 0\\n at [Source: java.io.PushbackInputStream@24fe0ad5; line: 3, column: 11] (through reference chain: com.ecommerce.microcommerce.model.Product[\\\"prix\\\"])\",\"path\":\"/Produits\"}"
+				}
+			]
+		}
+	]
+}
